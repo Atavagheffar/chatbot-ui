@@ -25,21 +25,3 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
-
-const theme = createTheme({
-  direction: "rtl",
-  palette: {
-    mode: "light",
-    background: {
-      default: "#f5f5f5",
-      // main page background
-    },
-    primary: {
-      main: "#4CAF50",
-      // buttons color
-    },
-  },
-  typography: {
-    fontFamily: "Tahoma, Arial",
-  },
-});

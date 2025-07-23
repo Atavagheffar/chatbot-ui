@@ -15,7 +15,7 @@ export default function HomePage() {
           Welcome to Our ChatBot :)
         </Typography>
         <Box sx={{ display: "flex", flexDirection: "column", gap: 2, mt: 4 }}>
-          <Button variant="contained" component={Link} href="./login">
+          <Button variant="contained" component={Link} href="/login">
             Login
           </Button>
           <Button variant="outlined" component={Link} href="/signup">

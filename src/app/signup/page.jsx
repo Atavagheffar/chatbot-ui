@@ -1,37 +1,51 @@
 "use client";
 import { useState } from "react";
-import { TextField, Button, Container, Typography, Box } from "@mui/material";
+import {
+  TextField,
+  Button,
+  Container,
+  Typography,
+  Box,
+  // TextField,
+} from "@mui/material";
+import styled from "@emotion/styled";
+import { signup } from "@/lib/api";
 
 export default function SignupPage() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  // const [name, setName] = useState("");
+  const [username, setuser] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Signup with:", name, email, password);
+    await signup(username, password);
+    // console.log("Signup with:", name, email, password);
   };
+
+  // const AtaTextField = styled(TextField)(({ theme }) => ({
+  //   "& label.Mui-focused": { backgroundColor: "red" },
+  // }));
 
   return (
     <Container maxWidth="sm">
-      <Box sx={{ mt: 8 }}>
+      <Box sx={{ mt: 8, bg: "aqua" }}>
         <Typography variant="h4" gutterBottom>
           Signup Page
         </Typography>
         <form onSubmit={handleSubmit}>
-          <TextField
+          {/* <TextField
             fullWidth
             label="Name"
             value={name}
             onChange={(e) => setName(e.target.value)}
             sx={{ mb: 2 }}
-          />
+          /> */}
           <TextField
             fullWidth
             label="Email"
             type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            value={username}
+            onChange={(e) => setuser(e.target.value)}
             sx={{ mb: 2 }}
           />
           <TextField
@@ -40,7 +54,7 @@ export default function SignupPage() {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            sx={{ mb: 2 }}
+            sx={{ mb: 2, bg: "red" }}
           />
           <Button fullWidth variant="contained" type="submit">
             Signup

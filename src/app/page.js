@@ -21,6 +21,9 @@ export default function HomePage() {
           <Button variant="outlined" component={Link} href="/signup">
             Signup
           </Button>
+          <Button variant="outlined" component={Link} href="/chat">
+            ChatPage
+          </Button>
         </Box>
       </Box>
     </Container>

@@ -194,7 +194,7 @@ export default function ChatPage() {
                   justifyContent: "space-between",
                 }}
               >
-                <Typography sx={{ color: "red", fontFamily: "Lalezar" }}>
+                <Typography sx={{ color: "black", fontFamily: "Lalezar" }}>
                   {chat.title}
                 </Typography>
                 <Typography

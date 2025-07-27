@@ -143,29 +143,35 @@ export default function ChatPage() {
       sx={{
         display: "flex",
         flexDirection: "row",
-        // gap: 1,
         justifyContent: "flex-start",
-        // alignItems: "flex-start",
         height: "100dvh",
         width: "100%",
-        backgroundColor: "whiteSmoke",
+        backgroundColor: "white",
+        fontFamily: "Lalezar",
+        direction: "rtl",
       }}
     >
-      //**************************** Sidebar
-      <Grid
-        item
-        xs={3}
+      {/* **************************** Sidebar */}
+      <Box
         sx={{
+          width: "25%",
           bgcolor: "#f7f7f7",
           borderRight: "1px solid #ddd",
           p: 2,
+          fontFamily: "Lalezar",
         }}
       >
-        <Typography variant="h6" sx={{ mb: 2, color: "blue" }}>
+        <Typography
+          variant="h6"
+          sx={{ mb: 2, color: "blue", fontFamily: "Lalezar" }}
+        >
           slothui
         </Typography>
         <Box>
-          <Typography variant="h6" sx={{ mb: 2, color: "black" }}>
+          <Typography
+            variant="h6"
+            sx={{ mb: 2, color: "black", fontFamily: "Lalezar" }}
+          >
             Chats
           </Typography>
           {conversations.map((chat) => (
@@ -188,14 +194,25 @@ export default function ChatPage() {
                   justifyContent: "space-between",
                 }}
               >
-                <Typography variant="subtitle1" sx={{ color: "red" }}>
+                <Typography sx={{ color: "red", fontFamily: "Lalezar" }}>
                   {chat.title}
                 </Typography>
-                <Typography variant="body2" sx={{ color: "black" }}>
+                <Typography
+                  sx={{
+                    color: "black",
+                    fontFamily: "Lalezar",
+                    direction: "ltr",
+                  }}
+                >
                   {chat.updatetime}
                 </Typography>
               </Box>
-              <Typography variant="body2" color="gray" noWrap>
+              <Typography
+                variant="body2"
+                color="gray"
+                fontFamily="Lalezar"
+                noWrap
+              >
                 {chat.messages[0].text}
               </Typography>
             </Box>
@@ -219,18 +236,23 @@ export default function ChatPage() {
             </ListItem>
           ))}
         </List> */}
-        <Button variant="contained" fullWidth sx={{ mt: 2 }}>
-          + New Chat
+        <Button
+          variant="contained"
+          fullWidth
+          sx={{ mt: 2, fontFamily: "Lalezar" }}
+        >
+          چت جدید
         </Button>
-      </Grid>
-      //**************************** Chat Area
-      <Grid
-        item
-        xs={9}
+      </Box>
+      {/* **************************** Chat Area */}
+      <Box
         sx={{
+          width: "75%",
           display: "flex",
           flexDirection: "column",
           color: "black",
+          bgcolor: "white",
+          fontFamily: "Lalezar",
         }}
       >
         <Box
@@ -241,18 +263,23 @@ export default function ChatPage() {
             flexDirection: "row",
             justifyContent: "space-between",
             alignItems: "center",
+            fontFamily: "Lalezar",
           }}
         >
-          <Typography variant="h6">{currentChat.title}</Typography>
+          <Typography variant="h6" fontFamily="Lalezar">
+            {currentChat.title}
+          </Typography>
           <Box
             sx={{
-              p: 2,
+              p: 1,
               border: "1px solid black",
               borderRadius: "8px",
               display: "flex",
               flexDirection: "row",
               justifyContent: "space-between",
               alignItems: "center",
+              fontFamily: "Lalezar",
+              direction: "ltr",
             }}
           >
             <Box sx={{ width: 50, height: 50 }}>
@@ -266,20 +293,32 @@ export default function ChatPage() {
                 }}
               />
             </Box>
-            <Box sx={{ p: 2 }}>
-              <Typography variant="body2">Ata Vagheffar</Typography>
-              <Typography>205 Tokens Left</Typography>
+            <Box sx={{ p: 2, fontFamily: "Lalezar" }}>
+              <Typography variant="body2" fontFamily="Lalezar">
+                Ata Vagheffar
+              </Typography>
+              <Typography fontFamily="Lalezar">205 Tokens Left</Typography>
             </Box>
           </Box>
         </Box>
 
-        <Box sx={{ flex: 1, p: 2, overflowY: "auto" }}>
+        <Box
+          sx={{
+            flex: 1,
+            p: 2,
+            overflowY: "auto",
+            fontFamily: "Lalezar",
+            direction: "ltr",
+          }}
+        >
           {currentChat.messages.map((msg, index) => (
             <Box
               key={index}
               sx={{
                 mb: 1,
                 display: "flex",
+                direction: "rtl",
+                fontFamily: "Lalezar",
                 justifyContent:
                   msg.sender === "user" ? "flex-end" : "flex-start",
               }}
@@ -309,8 +348,12 @@ export default function ChatPage() {
           }}
         >
           <TextField
-            fullWidth
-            placeholder="Message to slothpilot..."
+            sx={{
+              width: "65%",
+              margin: "0 auto",
+              fontFamily: "Lalezar",
+            }}
+            placeholder="پیام خود را اینجا تایپ کنید ..."
             value={newMessage}
             onChange={(e) => setNewMessage(e.target.value)}
           />
@@ -318,7 +361,7 @@ export default function ChatPage() {
             <SendIcon />
           </IconButton>
         </Box>
-      </Grid>
+      </Box>
     </Container>
   );
 }

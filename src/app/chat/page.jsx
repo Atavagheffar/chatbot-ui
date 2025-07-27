@@ -127,6 +127,16 @@ export default function ChatPage() {
   const [conversations, setConversations] = useState(sampleConversations);
   const [currentChat, setCurrentChat] = useState(sampleConversations[0]);
 
+  const handleNewChat = () => {
+    const newChat = {
+      id: Date.now(),
+      title: "مکالمه جدید",
+      messages: [{ sender: "ai", text: "سلام! چطور میتونم کمکت کنم؟" }],
+    };
+    setConversations([newChat, ...conversations]); //add to top of list
+    setCurrentChat(newChat); //open it immediately
+  };
+
   //   ****************************************************
 
   const [newMessage, setNewMessage] = useState("");
@@ -240,6 +250,7 @@ export default function ChatPage() {
           variant="contained"
           fullWidth
           sx={{ mt: 2, fontFamily: "Lalezar" }}
+          onClick={handleNewChat}
         >
           چت جدید
         </Button>
@@ -317,7 +328,7 @@ export default function ChatPage() {
               sx={{
                 mb: 1,
                 display: "flex",
-                direction: "rtl",
+                direction: "ltr",
                 fontFamily: "Lalezar",
                 justifyContent:
                   msg.sender === "user" ? "flex-end" : "flex-start",
@@ -330,6 +341,7 @@ export default function ChatPage() {
                   p: 1.5,
                   borderRadius: 2,
                   maxWidth: "70%",
+                  direction: "rtl",
                 }}
               >
                 {msg.text}
